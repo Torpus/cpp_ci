@@ -55,8 +55,8 @@ int main()
     renderCount++;
     if( getCurrentTime() - startTime > 1000) {
       cout << "input cycles per second: " << processInputCount << "\n";
-      cout << "render cycles per seconds " << renderCount;
-      cout << "update cycles per seconds " << updateCount;
+      cout << "render cycles per seconds " << renderCount << "\n";
+      cout << "update cycles per seconds " << updateCount << "\n";
       processInputCount = 0;
       renderCount = 0;
       updateCount = 0;
