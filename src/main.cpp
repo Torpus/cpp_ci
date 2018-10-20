@@ -16,12 +16,12 @@ long getCurrentTime()
 
 void processInput()
 {
-  this_thread::sleep_for(std::chrono::milliseconds(3));
+  this_thread::sleep_for(std::chrono::milliseconds(1));
   cout << "processInput()\n";
 }
 void update()
 {
-  this_thread::sleep_for(std::chrono::milliseconds(0));
+  this_thread::sleep_for(std::chrono::milliseconds(3));
   cout << "update()\n";
 }
 void render(double lag) {
