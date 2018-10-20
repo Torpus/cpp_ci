@@ -9,8 +9,7 @@ double MS_PER_UPDATE = 16.0;
 
 long getCurrentTime()
 {
-  clock_t t;
-  t = clock();
+  clock_t t = clock();
   return t;
 }
 
@@ -20,7 +19,7 @@ void processInput()
 }
 void update()
 {
-  this_thread::sleep_for(std::chrono::milliseconds(8));
+  this_thread::sleep_for(std::chrono::milliseconds(2));
 }
 void render() {
   this_thread::sleep_for(std::chrono::milliseconds(3));
@@ -63,7 +62,5 @@ int main()
       updateCount = 0;
       startTime = getCurrentTime();
     }
-    
-    previous = current;
   }
 }
