@@ -35,7 +35,7 @@ int main()
   int updateCount = 0;
   int processInputCount = 0;
 
-  for( int a = 0; a < 1000; a = a + 1 ) {
+  for( int a = 0; a < 100; a = a + 1 ) {
     double current = getCurrentTime();
     double elapsed = current - previous;
     previous = current;
@@ -53,13 +53,14 @@ int main()
 
     render();
     renderCount++;
-    if( getCurrentTime() - startTime > 1000) {
+    if( (getCurrentTime() - startTime) > 1000) {
       cout << "input cycles per second: " << processInputCount << "\n";
       cout << "render cycles per seconds " << renderCount << "\n";
       cout << "update cycles per seconds " << updateCount << "\n";
       processInputCount = 0;
       renderCount = 0;
       updateCount = 0;
+      startTime = getCurrentTime();
     }
   }
 }
