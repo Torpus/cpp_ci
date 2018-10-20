@@ -39,7 +39,6 @@ int main()
     double elapsed = current - previous;
     previous = current;
     lag += elapsed;
-    cout << "lag: " << lag << "\n";
     processInput();
     processInputCount++;
 
