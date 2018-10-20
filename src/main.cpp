@@ -62,5 +62,6 @@ int main()
       updateCount = 0;
       startTime = getCurrentTime();
     }
+    previous = current;
   }
 }
