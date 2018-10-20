@@ -1,6 +1,3 @@
-# Prerequisites
-*.d
-
 # Compiled Object files
 *.slo
 *.lo
@@ -18,7 +15,6 @@
 
 # Fortran module files
 *.mod
-*.smod
 
 # Compiled Static libraries
 *.lai
@@ -30,7 +26,15 @@
 *.exe
 *.out
 *.app
-
-# Coverage
+*.gcda
+Makefile
+*.gcov
+*.gcda
+*.gcno
+*qmake_gcov
+*.pro.user
+travis_qmake_gcc_cpp98_gcov
+travis_qmake_gcc_cpp98_gcov
+travis_qmake_gcc_cpp98_gcov_gcov
+travis_qmake_gcc_cpp11_gcov_gcov
 travis_qmake_gcc_cpp11_gcov
-cpp_ci
