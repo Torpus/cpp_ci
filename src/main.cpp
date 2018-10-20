@@ -39,7 +39,7 @@ int main()
     double elapsed = current - previous;
     previous = current;
     lag += elapsed;
-    cout << "lag: " << lag;
+    cout << "lag: " << lag << "\n";
     cout <<"ms_per_update: " << MS_PER_UPDATE << "\n";
     processInput();
 
