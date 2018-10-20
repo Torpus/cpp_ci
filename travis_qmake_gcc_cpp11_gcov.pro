@@ -1,4 +1,4 @@
-SOURCES += src/cpp_ci.cpp
+SOURCES += main.cpp
 
 QMAKE_CXXFLAGS += -Wall -Wextra -Weffc++ -Werror
 
