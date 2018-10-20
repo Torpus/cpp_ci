@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# Coverage
+travis_qmake_gcc_cpp11_gcov
+cpp_ci
