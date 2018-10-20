@@ -53,6 +53,7 @@ int main()
 
     render();
     renderCount++;
+
     if( (getCurrentTime() - startTime) > 1000) {
       cout << "input cycles per second: " << processInputCount << "\n";
       cout << "render cycles per seconds " << renderCount << "\n";
@@ -62,6 +63,7 @@ int main()
       updateCount = 0;
       startTime = getCurrentTime();
     }
+    
     previous = current;
   }
 }
