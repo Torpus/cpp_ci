@@ -22,9 +22,8 @@ void update()
 {
   this_thread::sleep_for(std::chrono::milliseconds(3));
 }
-void render(double lag) {
-  int wait = lag/MS_PER_UPDATE;
-  this_thread::sleep_for(std::chrono::milliseconds(wait));
+void render() {
+  this_thread::sleep_for(std::chrono::milliseconds(3));
 }
 
 int main()
@@ -52,12 +51,15 @@ int main()
       lag -= MS_PER_UPDATE;
     }
 
-    render(lag / MS_PER_UPDATE);
+    render();
     renderCount++;
     if( getCurrentTime() - startTime > 1000) {
-      cout << "input cycles per second: " << processInputCount;
+      cout << "input cycles per second: " << processInputCount << "\n";
       cout << "render cycles per seconds " << renderCount;
       cout << "update cycles per seconds " << updateCount;
+      processInputCount = 0;
+      renderCount = 0;
+      updateCount = 0;
     }
   }
 }
