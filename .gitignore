@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# travis_qmake_gcc_cpp11_gcov
+travis_qmake_gcc_cpp11_gcov
+
+# .gcno
+*.gcno

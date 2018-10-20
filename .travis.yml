@@ -6,6 +6,7 @@ compiler: gcc
 before_install:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get update -qq
+  - export CODECOV_TOKEN="c616a2e1-a106-49fd-81c7-fd6c7f66d904"
 
 install: 
   - sudo apt-get install -qq g++-5

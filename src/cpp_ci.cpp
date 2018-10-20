@@ -25,7 +25,8 @@ void update()
   cout << "update()\n";
 }
 void render(double lag) {
-  this_thread::sleep_for(std::chrono::milliseconds(4));
+  int wait = lag/MS_PER_UPDATE;
+  this_thread::sleep_for(std::chrono::milliseconds(wait));
   cout << "render()\n";
 }
 
@@ -33,7 +34,7 @@ int main()
 {
   double previous = getCurrentTime();
   double lag = 0.0;
-  for( int a = 0; a < 10; a = a + 1 ) {  {
+  for( int a = 0; a < 10; a = a + 1 ) {
     double current = getCurrentTime();
     double elapsed = current - previous;
     previous = current;
