@@ -40,19 +40,18 @@ int main()
 
   for( int a = 0; a < 100; a = a + 1 ) {
     double elapsed = getCurrentTime() - previous;
-    cout << "elapsed: " << elapsed << "\n";
-    cout << "lag(main loop start): " << lag << "\n";
+    cout << "elapsed(since last loop): " << elapsed << "\n";
+    cout << "lag(main loop start value): " << lag << "\n";
     previous = getCurrentTime();
     lag += elapsed;
     processInput();
     processInputCount++;
 
-    while (lag >= MS_PER_UPDATE && !checkSecond(startTime))
+    while (lag >= MS_PER_UPDATE)
     {
-      cout << "lag(update loop): " << lag << "\n";
       update();
       updateCount++;
-      lag = lag - MS_PER_UPDATE;
+      lag -= MS_PER_UPDATE;
     }
 
     render();
