@@ -14,14 +14,14 @@ long getCurrentTime()
 
 void processInput()
 {
-  this_thread::sleep_for(chrono::milliseconds(1));
+  this_thread::sleep_for(chrono::milliseconds(2));
 }
 void update()
 {
-  this_thread::sleep_for(chrono::milliseconds(1));
+  this_thread::sleep_for(chrono::milliseconds(5));
 }
 void render() {
-  this_thread::sleep_for(chrono::milliseconds(1));
+  this_thread::sleep_for(chrono::milliseconds(6));
 }
 
 bool checkSecond(double time) {
