@@ -19,10 +19,10 @@ void processInput()
 }
 void update()
 {
-  this_thread::sleep_for(std::chrono::milliseconds(2));
+  this_thread::sleep_for(std::chrono::milliseconds(5));
 }
 void render() {
-  this_thread::sleep_for(std::chrono::milliseconds(3));
+  this_thread::sleep_for(std::chrono::milliseconds(10));
 }
 
 int main()
@@ -35,9 +35,8 @@ int main()
   int processInputCount = 0;
 
   for( int a = 0; a < 100; a = a + 1 ) {
-    double current = getCurrentTime();
-    double elapsed = current - previous;
-    previous = current;
+    double elapsed = getCurrentTime() - previous;
+    previous = getCurrentTime();
     lag += elapsed;
     processInput();
     processInputCount++;
