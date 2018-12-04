@@ -36,6 +36,8 @@ int main()
 
   for( int a = 0; a < 100; a = a + 1 ) {
     double elapsed = getCurrentTime() - previous;
+    cout << "elapse: " << elapsed << "\n";
+    cout << "lag(main loop start): " << lag << "\n";
     previous = getCurrentTime();
     lag += elapsed;
     processInput();
@@ -43,9 +45,10 @@ int main()
 
     while (lag >= MS_PER_UPDATE)
     {
+      cout << "lag(update loop): " << lag << "\n";
       update();
       updateCount++;
-      lag -= MS_PER_UPDATE;
+      lag = lag - MS_PER_UPDATE;
     }
 
     render();
