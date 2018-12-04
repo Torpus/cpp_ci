@@ -2,13 +2,13 @@
 
 - worlds render using shared power of users computers
 - starts as very simply generated graphics, as users and number of hits increases so does visual fidelity via ML
-- classic d&d crawler / tolkien lore rules apply, persistent lore so long as events are remembered...
+- classic d&d crawler / Tolkien lore rules apply, persistent lore so long as events are remembered...
 - as explorers spread out the map is built and stored in ever increasing detail per cycle
   - users' computers figures out if it should spend resources rendering visual fidelity for user vs increasing details and depth to known environment based on location, resource availability, and performance balance
 - things get fuzzier when not visited for a while
   - some kind of burn rate
   - number of recent visits
-  - historical signifigance/detail of lore reference
+  - historical significance/detail of lore reference
 - procedurally generated, shit gets rolled off based on visitation rate and lore detail
 - some kind of historical marker system to remember critical criteria, probably seed data for ML algo that generates the world using shared resources
   - things can get forgotten and procedurally revisited later for different outcomes
