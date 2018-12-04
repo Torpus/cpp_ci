@@ -15,7 +15,7 @@ long getCurrentTime()
 
 void processInput()
 {
-  this_thread::sleep_for(std::chrono::milliseconds(3));
+  this_thread::sleep_for(std::chrono::milliseconds(1));
 }
 void update()
 {
