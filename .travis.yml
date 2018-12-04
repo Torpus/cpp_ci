@@ -10,11 +10,14 @@ before_install:
 install: 
   - sudo apt-get install -qq g++-7
   - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-7 90
+  - npm install markdownlint-cli markdown-spellcheck
 
 script: 
   - ./build.sh
   - ./travis_qmake_gcc_cpp11_gcov
   - ./get_code_cov.sh
+  - ./node_modules/.bin/mdspell -n -a -r -x --en-us '**/*.md' '!**/node_modules/**/*.md'
+  - ./node_modules/.bin/markdownlint -i ./node_modules -i ./include -i ./lib '**/*.md'
 
 after_success: 
   - bash <(curl -s https://codecov.io/bash)
