@@ -25,6 +25,10 @@ void render() {
   this_thread::sleep_for(std::chrono::milliseconds(1));
 }
 
+bool checkSecond(double time) {
+  return (getCurrentTime() - time) > 1000;
+}
+
 int main()
 {
   double previous = getCurrentTime();
@@ -43,7 +47,7 @@ int main()
     processInput();
     processInputCount++;
 
-    while (lag >= MS_PER_UPDATE)
+    while (lag >= MS_PER_UPDATE && !checkSecond(startTime))
     {
       cout << "lag(update loop): " << lag << "\n";
       update();
@@ -54,7 +58,7 @@ int main()
     render();
     renderCount++;
 
-    if( (getCurrentTime() - startTime) > 1000) {
+    if(checkSecond(startTime)) {
       cout << "input cycles per second: " << processInputCount << "\n";
       cout << "render cycles per seconds " << renderCount << "\n";
       cout << "update cycles per seconds " << updateCount << "\n";
