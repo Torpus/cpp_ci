@@ -19,10 +19,10 @@ void processInput()
 }
 void update()
 {
-  this_thread::sleep_for(std::chrono::milliseconds(5));
+  this_thread::sleep_for(std::chrono::milliseconds(1));
 }
 void render() {
-  this_thread::sleep_for(std::chrono::milliseconds(5));
+  this_thread::sleep_for(std::chrono::milliseconds(1));
 }
 
 int main()
@@ -36,7 +36,7 @@ int main()
 
   for( int a = 0; a < 100; a = a + 1 ) {
     double elapsed = getCurrentTime() - previous;
-    cout << "elapse: " << elapsed << "\n";
+    cout << "elapsed: " << elapsed << "\n";
     cout << "lag(main loop start): " << lag << "\n";
     previous = getCurrentTime();
     lag += elapsed;
