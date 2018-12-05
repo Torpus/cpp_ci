@@ -7,29 +7,38 @@ using namespace std;
 
 double MS_PER_UPDATE = 16.0;
 
-long getCurrentTime() {
+long getCurrentTime()
+{
   return chrono::duration_cast< chrono::milliseconds >( chrono::system_clock::now().time_since_epoch() ).count();
 }
 
-void initializeGame() {
+void initializeGame()
+{
   // TODO do stuff
 }
 
-void processInput() {
+void processInput()
+{
   this_thread::sleep_for(chrono::milliseconds(2));
 }
-void update() {
+
+void update()
+{
   this_thread::sleep_for(chrono::milliseconds(5));
 }
-void render() {
+
+void render()
+{
   this_thread::sleep_for(chrono::milliseconds(6));
 }
 
-bool checkSecond(double time) {
+bool checkSecond(double time)
+{
   return (getCurrentTime() - time) > 1000;
 }
 
-void gameLoop() {
+void gameLoop()
+{
   long previous = getCurrentTime();
     long startTime = getCurrentTime();
     double lag = 0.0;
@@ -66,7 +75,8 @@ void gameLoop() {
     }
 }
 
-int main() {
+int main()
+{
   initializeGame();
   gameLoop();
 }
