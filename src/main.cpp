@@ -9,7 +9,7 @@ double MS_PER_UPDATE = 16.0;
 
 long getCurrentTime()
 {
-  return chrono::duration_cast< chrono::milliseconds >( chrono::system_clock::now().time_since_epoch() ).count();
+  return chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now().time_since_epoch()).count();
 }
 
 void initializeGame()
@@ -46,14 +46,15 @@ void gameLoop()
     int updateCount = 0;
     int processInputCount = 0;
 
-    for( int a = 0; a < 1000; a = a + 1 ) {
+    for(int a = 0; a < 1000; a = a + 1)
+    {
       long elapsed = getCurrentTime() - previous;
       previous = getCurrentTime();
       lag += elapsed;
       processInput();
       processInputCount++;
 
-      while ( lag >= MS_PER_UPDATE )
+      while (lag >= MS_PER_UPDATE)
       {
         update();
         updateCount++;
@@ -63,7 +64,8 @@ void gameLoop()
       render();
       renderCount++;
 
-      if( checkSecond(startTime) ) {
+      if(checkSecond(startTime))
+      {
         cout << "input cycles per second: " << processInputCount << "\n";
         cout << "render cycles per seconds " << renderCount << "\n";
         cout << "update cycles per seconds " << updateCount << "\n";
