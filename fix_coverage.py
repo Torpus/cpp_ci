@@ -2,8 +2,7 @@ import argparse
 import subprocess
 
 def demangle(symbol):
-    p = subprocess.Popen(['c++filt','-n'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-    return p.communicate(input=symbol.encode())[0].decode().strip()
+    return subprocess.check_output(['c++filt', '-n', symbol.strip()]).decode().strip()
 
 def filter_lcov(lines, verbose=False):
     defs, srcfile = {}, ''
@@ -15,10 +14,7 @@ def filter_lcov(lines, verbose=False):
             defs = {}
         elif line.startswith('FN:'):
             lineno, symbol = line[3:].split(',')
-            if verbose:
-                defs[lineno] = demangle(symbol)
-            else:
-                defs[lineno] = True
+            defs[lineno] = demangle(symbol)
         elif line.startswith('DA:'):
             lineno = line[3:].split(',')[0]
             if lineno in defs:
