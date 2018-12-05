@@ -37,10 +37,8 @@ int main()
   int updateCount = 0;
   int processInputCount = 0;
 
-  for( int a = 0; a < 100; a = a + 1 ) {
+  for( int a = 0; a < 1000; a = a + 1 ) {
     long elapsed = getCurrentTime() - previous;
-    cout << "elapsed(since last loop): " << elapsed << "\n";
-    cout << "lag(main loop start value): " << lag << "\n";
     previous = getCurrentTime();
     lag += elapsed;
     processInput();
