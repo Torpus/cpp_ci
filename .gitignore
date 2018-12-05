@@ -4,6 +4,10 @@
 *.o
 *.obj
 
+# node
+npm-debug.log
+node_modules/
+
 # Precompiled Headers
 *.gch
 *.pch

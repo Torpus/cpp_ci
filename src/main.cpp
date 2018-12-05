@@ -9,40 +9,42 @@ double MS_PER_UPDATE = 16.0;
 
 long getCurrentTime()
 {
-  clock_t t = clock();
-  return t;
+  return chrono::duration_cast< chrono::milliseconds >( chrono::system_clock::now().time_since_epoch() ).count();
 }
 
 void processInput()
 {
-  this_thread::sleep_for(std::chrono::milliseconds(3));
+  this_thread::sleep_for(chrono::milliseconds(2));
 }
 void update()
 {
-  this_thread::sleep_for(std::chrono::milliseconds(2));
+  this_thread::sleep_for(chrono::milliseconds(5));
 }
 void render() {
-  this_thread::sleep_for(std::chrono::milliseconds(3));
+  this_thread::sleep_for(chrono::milliseconds(6));
+}
+
+bool checkSecond(double time) {
+  return (getCurrentTime() - time) > 1000;
 }
 
 int main()
 {
-  double previous = getCurrentTime();
-  double startTime = getCurrentTime();
+  long previous = getCurrentTime();
+  long startTime = getCurrentTime();
   double lag = 0.0;
   int renderCount = 0;
   int updateCount = 0;
   int processInputCount = 0;
 
-  for( int a = 0; a < 100; a = a + 1 ) {
-    double current = getCurrentTime();
-    double elapsed = current - previous;
-    previous = current;
+  for( int a = 0; a < 1000; a = a + 1 ) {
+    long elapsed = getCurrentTime() - previous;
+    previous = getCurrentTime();
     lag += elapsed;
     processInput();
     processInputCount++;
 
-    while (lag >= MS_PER_UPDATE)
+    while ( lag >= MS_PER_UPDATE )
     {
       update();
       updateCount++;
@@ -52,7 +54,7 @@ int main()
     render();
     renderCount++;
 
-    if( (getCurrentTime() - startTime) > 1000) {
+    if( checkSecond(startTime) ) {
       cout << "input cycles per second: " << processInputCount << "\n";
       cout << "render cycles per seconds " << renderCount << "\n";
       cout << "update cycles per seconds " << updateCount << "\n";
