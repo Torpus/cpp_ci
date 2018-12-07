@@ -25,6 +25,7 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument('input', type=str)
     p.add_argument('output', type=str)
+    p.add_argument('--verbose', '-v', action='store_true')
     args = p.parse_args()
     with open(args.input, 'rb') as fin:
         lines = list(fin)
