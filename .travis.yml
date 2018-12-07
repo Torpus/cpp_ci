@@ -5,11 +5,15 @@ compiler: gcc
 
 before_install:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-  - sudo apt-get update -qq
+  - sudo add-apt-repository ppa:deadsnakes/ppa
+  - sudo apt-get update
 
-install: 
-  - sudo apt-get install -qq g++-7 python3
+install:
+  - sudo apt-get install software-properties-common
+  - sudo apt-get install -qq g++-7
+  - sudo apt-get install python3.6
   - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-7 90
+  - sudo apt-get update -qq
   - npm install markdownlint-cli markdown-spellcheck
 
 script: 
