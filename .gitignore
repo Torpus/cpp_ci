@@ -36,6 +36,7 @@ Makefile
 *.gcda
 *.gcno
 *qmake_gcov
+.qmake.stash
 *.pro.user
 travis_qmake_gcc_cpp98_gcov
 travis_qmake_gcc_cpp98_gcov

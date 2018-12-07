@@ -3,7 +3,7 @@ SOURCES += src/main.cpp
 QMAKE_CXXFLAGS += -Wall -Wextra -Weffc++ -Werror
 
 # gcov
-QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
+QMAKE_CXXFLAGS += -g -fprofile-arcs -ftest-coverage -fno-inline
 LIBS += -lgcov
 
 # C++11
