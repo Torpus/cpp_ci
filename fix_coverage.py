@@ -18,8 +18,6 @@ def filter_lcov(lines, verbose=False):
         elif line.startswith('DA:'):
             lineno = line[3:].split(',')[0]
             if lineno in defs:
-                if verbose:
-                    print(f'Ignoring: {srcfile}:{lineno}:{defs[lineno]}')
                 continue
         yield line
 
